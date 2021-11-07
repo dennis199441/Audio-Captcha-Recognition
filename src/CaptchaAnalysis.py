@@ -21,7 +21,7 @@ class CaptchaAnalysis:
             self.X[self.iii]=g.name 
             self.iii+=1 
         if isinstance(g, h5py.File) or isinstance(g, h5py.Group) :
-            for key,val in dict(g).iteritems() :
+            for key,val in dict(g).items():
                 subg = val            
                 self.take_hdf5_item_structure(subg, offset + '    ')
 
@@ -49,7 +49,7 @@ class CaptchaAnalysis:
             Spec[i-2]=np.array(file[self.X[i]+'/spec'])
             Label[i-2]=file[self.X[i]+'/label'][0]
         file.close()
-        print len(Ceps), ' number of data read from given dataset'
+        print(len(Ceps), ' number of data read from given dataset')
         m,n=Ceps[0].shape
         self.Ftrain=np.zeros((len(Ceps),m*n))
         self.FtrLabel=np.zeros(len(Ceps))
@@ -117,7 +117,7 @@ class CaptchaAnalysis:
             Spec[i-2]=np.array(file[self.X[i]+'/spec'])
             Label[i-2]=file[self.X[i]+'/label'][0]
         file.close()
-        print len(Ceps), ' number of data read from given dataset'
+        print(len(Ceps), ' number of data read from given dataset')
         m,n=Ceps[0].shape
         train=np.zeros((len(Ceps),m*n))
         trLabel=np.zeros(len(Ceps))
@@ -174,7 +174,7 @@ class CaptchaAnalysis:
             Spec[i-2]=np.array(file[self.X[i]+'/spec'])
             Label[i-2]=file[self.X[i]+'/label'][0]
         file.close()
-        print len(Ceps), ' number of data read from given dataset'
+        print(len(Ceps), ' number of data read from given dataset')
         m,n=Ceps[0].shape
         train=np.zeros((len(Ceps),m*n))
         trLabel=np.zeros(len(Ceps))
@@ -393,4 +393,4 @@ if __name__ == "__main__":
     ca.loadtrainparam('dataset/train/train_features_50.0_0.9')
 
     result=ca.test('dataset/test/04648.wav')
-    print (result)
+    print((result))

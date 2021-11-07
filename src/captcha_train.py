@@ -4,10 +4,10 @@ import sys
 
 
 
-print 'Using instruction......'
-print 'python captcha_train.py train_features.mat costvalue pcavar'
-print 'default train data name dataset/train/train_features.mat, default costvalue=100.0 default pcavar=0.95'
-print '---------------------'
+print('Using instruction......')
+print('python captcha_train.py train_features.mat costvalue pcavar')
+print('default train data name dataset/train/train_features.mat, default costvalue=100.0 default pcavar=0.95')
+print('---------------------')
 
 if len(sys.argv)<2:
     cst=100
@@ -32,13 +32,13 @@ ca=CaptchaAnalysis()
 result=ca.train(file,cost=cst,pcavar=pcavar)
 #result=ca.trainNB(file)
 
-print 'Success rate of ', file , ' costvalue=', cst , ' and pcavar=', pcavar
-print ''
+print('Success rate of ', file , ' costvalue=', cst , ' and pcavar=', pcavar)
+print('')
 
 for i in range(0,11):
     if i<10:
-        print i, "success rate:", result[i,0]/result[i,1]
+        print(i, "success rate:", result[i,0]/result[i,1])
     else:
-        print "non numbered parts success rate:", result[i,0]/result[i,1]
+        print("non numbered parts success rate:", result[i,0]/result[i,1])
 
 

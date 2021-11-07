@@ -66,9 +66,9 @@ def dynamicTimeWarp(seqA, seqB, nap):
 
 
 
-print 'Using instruction......'
-print 'python captcha_test traineddatafile [filename1 | --all] <filename2> <filename3>, .....'
-print '---------------------'
+print('Using instruction......')
+print('python captcha_test traineddatafile [filename1 | --all] <filename2> <filename3>, .....')
+print('---------------------')
 
  
 traineddatafile= "dataset/train/train_features_50.0_0.9" 
@@ -85,7 +85,7 @@ if len(sys.argv)>2:
 ca=CaptchaAnalysis() 
 ca.loadtrainparam(traineddatafile)
 
-print 'Using trained data file: ', traineddatafile
+print('Using trained data file: ', traineddatafile)
 
 d=0
 t=0
@@ -104,7 +104,7 @@ if param=="--all":
             if result==file[0:-4]:
                 d+=1
             t+=1
-            print str(file), '\t------->', result, '\t precision: ', d*1.0/t, '\t digit precision: ', dd*1.0/tt
+            print(str(file), '\t------->', result, '\t precision: ', d*1.0/t, '\t digit precision: ', dd*1.0/tt)
 else:
     for i in range(2,len(sys.argv)):
         result=ca.test(str(sys.argv[i]))
@@ -113,8 +113,8 @@ else:
             d+=1
         t+=1
     
-        print str(sys.argv[i]), '\t------->', result, '\t precision: ', d*1.0/t
+        print(str(sys.argv[i]), '\t------->', result, '\t precision: ', d*1.0/t)
 
 
     
-print ' General precision :', d*1.0/t, '\t digit precision: ', dd*1.0/tt
+print(' General precision :', d*1.0/t, '\t digit precision: ', dd*1.0/tt)
